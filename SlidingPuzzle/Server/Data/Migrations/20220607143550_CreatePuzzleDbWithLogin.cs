@@ -3,42 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace SlidingPuzzle.Server.Migrations
+namespace SlidingPuzzle.Server.Data.Migrations
 {
-    public partial class CreatePuzzleDb : Migration
+    public partial class CreatePuzzleDbWithLogin : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "PlayerGames",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PlayerId = table.Column<int>(type: "int", nullable: false),
-                    PuzzleId = table.Column<int>(type: "int", nullable: false),
-                    TimePassed = table.Column<float>(type: "real", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PlayerGames", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Players",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PwHash = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Players", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Puzzles",
                 columns: table => new
@@ -49,6 +19,33 @@ namespace SlidingPuzzle.Server.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Puzzles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PlayerGames",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PlayerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PuzzleId = table.Column<int>(type: "int", nullable: false),
+                    TimePassed = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PlayerGames", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PlayerGames_AspNetUsers_PlayerId",
+                        column: x => x.PlayerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PlayerGames_Puzzles_PuzzleId",
+                        column: x => x.PuzzleId,
+                        principalTable: "Puzzles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -98,8 +95,18 @@ namespace SlidingPuzzle.Server.Migrations
                         column: x => x.PuzzlePieceId,
                         principalTable: "PuzzlePieces",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PlayerGames_PlayerId",
+                table: "PlayerGames",
+                column: "PlayerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PlayerGames_PuzzleId",
+                table: "PlayerGames",
+                column: "PuzzleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PuzzlePiecePositions_PlayerGameId",
@@ -119,9 +126,6 @@ namespace SlidingPuzzle.Server.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Players");
-
             migrationBuilder.DropTable(
                 name: "PuzzlePiecePositions");
 

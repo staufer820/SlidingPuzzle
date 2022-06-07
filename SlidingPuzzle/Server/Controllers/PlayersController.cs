@@ -11,9 +11,9 @@ namespace SlidingPuzzle.Server.Controllers;
 [Route("api/[controller]")]
 public class PlayersController : ControllerBase
 {
-    private readonly AppDbContext dbContext;
+    private readonly ApplicationDbContext dbContext;
 
-    public PlayersController(AppDbContext dbContext)
+    public PlayersController(ApplicationDbContext dbContext)
     {
         this.dbContext = dbContext;
     }
@@ -27,7 +27,7 @@ public class PlayersController : ControllerBase
         {
             edit.Email = player.Email;
             edit.UserName = player.UserName;
-            edit.PwHash = player.PwHash;
+            edit.PasswordHash = player.PasswordHash;
             await this.dbContext.SaveChangesAsync();
         }
         return edit;
@@ -51,7 +51,7 @@ public class PlayersController : ControllerBase
     }
 
     [HttpGet("{Id}")]
-    public async Task<Player> Get(int Id)
+    public async Task<Player> Get(string Id)
     {
         return await this.dbContext.Players.FirstAsync(p => p.Id == Id);
     }

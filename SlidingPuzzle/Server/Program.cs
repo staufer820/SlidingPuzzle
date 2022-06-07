@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using SlidingPuzzle.Server;
 using SlidingPuzzle.Server.Data;
-using SlidingPuzzle.Server.Models;
 using Microsoft.EntityFrameworkCore;
 using SlidingPuzzle.Shared;
 
@@ -17,20 +16,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<Player>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddIdentityServer()
-    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+    .AddApiAuthorization<Player, ApplicationDbContext>();
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 

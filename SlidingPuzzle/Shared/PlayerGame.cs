@@ -7,13 +7,16 @@ public class PlayerGame
 {
     [Key]
     public int Id { get; set; }
-
+    
     [Required]
-    public int PlayerId { get; set; }
+    public virtual Player Player { get; set; }
 
     [Required]
     public int PuzzleId { get; set; }
-    
+
+    [Required]
+    public virtual Puzzle Puzzle { get; set; }
+
     public float TimePassed { get; set; }
 
     [Required]

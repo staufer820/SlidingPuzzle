@@ -28,7 +28,7 @@
                         <input type="text" class="form-control" value="@player.UserName" @onchange="@((ChangeEventArgs e) => Save(e, player, "UserName"))" />
                     </td>
                     <td>
-                        <input type="text" class="form-control" value="@player.PwHash" @onchange="@((ChangeEventArgs e) => Save(e, player, "PwHash"))" />
+                        <input type="text" class="form-control" value="@player.PasswordHash" @onchange="@((ChangeEventArgs e) => Save(e, player, "PasswordHash"))" />
                     </td>
                 </tr>
             </Row>
@@ -42,7 +42,7 @@ Welcome to your new app.
 <form>
     <input type="email" @bind-value="newPlayer.Email"/>
     <input type="text" @bind-value="newPlayer.UserName"/>
-    <input type="text" @bind-value="newPlayer.PwHash"/>
+    <input type="text" @bind-value="newPlayer.PasswordHash"/>
 </form>
 <button class="btn btn-success" @onclick="Add">Add</button>
 
@@ -66,7 +66,7 @@ Welcome to your new app.
             if (msg.IsSuccessStatusCode)
             {
                 players.Add(await msg.Content.ReadFromJsonAsync<Player>());
-                newPlayer.Email = newPlayer.UserName = newPlayer.PwHash = null;
+                newPlayer.Email = newPlayer.UserName = newPlayer.PasswordHash = null;
             }
         }
     }

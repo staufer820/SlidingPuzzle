@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using SlidingPuzzle.Server.Models
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+@using SlidingPuzzle.Shared
+@inject SignInManager<Player> SignInManager
+@inject UserManager<Player> UserManager
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
