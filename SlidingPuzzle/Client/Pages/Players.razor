@@ -3,41 +3,48 @@
 @using SlidingPuzzle.Shared
 @using SlidingPuzzle.Client.Components
 @using System.Reflection
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
 
 <h3>Players</h3>
 
-<DataRepeaterComponent Items="players">
-    <Row Context="player">
-        <tr>
-            <td>
-                <input type="text" class="form-control" value="@player.Email" @onchange="@((ChangeEventArgs e) => Save(e, player, "Email"))" />
-            </td>
-            <td>
-                <input type="text" class="form-control" value="@player.UserName" @onchange="@((ChangeEventArgs e) => Save(e, player, "UserName"))" />
-            </td>
-            <td>
-                <input type="text" class="form-control" value="@player.PwHash" @onchange="@((ChangeEventArgs e) => Save(e, player, "PwHash"))" />
-            </td>
-        </tr>
-    </Row>
-</DataRepeaterComponent>
-
-@if (players != null)
+@if (players == null)
 {
-    @foreach (var player in players)
-    {
-        <div>
-            @(player.UserName)
-        </div>
-    }
+    <p><em>Loading...</em></p>
 }
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr><th>name</th><th>address</th><th colspan="2">zip</th></tr>
+        </thead>
+        <tbody>
+        <DataRepeaterComponent Items="players">
+            <Row Context="player">
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" value="@player.Email" @onchange="@((ChangeEventArgs e) => Save(e, player, "Email"))" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" value="@player.UserName" @onchange="@((ChangeEventArgs e) => Save(e, player, "UserName"))" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" value="@player.PwHash" @onchange="@((ChangeEventArgs e) => Save(e, player, "PwHash"))" />
+                    </td>
+                </tr>
+            </Row>
+        </DataRepeaterComponent>
+        </tbody>
+    </table>
+</div>
+
 Welcome to your new app.
+
 <form>
     <input type="email" @bind-value="newPlayer.Email"/>
     <input type="text" @bind-value="newPlayer.UserName"/>
     <input type="text" @bind-value="newPlayer.PwHash"/>
 </form>
-<button class="btn btn-success" @onclick="AddPlayer">Add</button>
+<button class="btn btn-success" @onclick="Add">Add</button>
 
 @code {
     
@@ -48,14 +55,13 @@ Welcome to your new app.
     
     protected override async Task OnInitializedAsync()
     {
-        players = await Http.GetFromJsonAsync<List<Player>>("/api/players");
-        await base.OnInitializedAsync();
+        players = await Http.GetFromJsonAsync<List<Player>>("/api/Players");
     }
 
     
     private async Task Add()
     {
-        using (var msg = await Http.PostAsJsonAsync<Player>("/api/players", newPlayer, System.Threading.CancellationToken.None))
+        using (var msg = await Http.PostAsJsonAsync<Player>("/api/Players", newPlayer, System.Threading.CancellationToken.None))
         {
             if (msg.IsSuccessStatusCode)
             {
@@ -67,11 +73,7 @@ Welcome to your new app.
     
     private async Task AddPlayer()
     {
-        await Http.PostAsJsonAsync<Player>("/api/players", newPlayer);
-        players = new List<Player>
-        {
-            new(){UserName = "sterer"}
-        };
+        await Http.PostAsJsonAsync<Player>("/api/Players", newPlayer);
     }
     
     private async Task Save(ChangeEventArgs e, Player player, string propField)
@@ -79,14 +81,14 @@ Welcome to your new app.
         PropertyInfo pinfo = typeof(Player).GetProperty(propField);
         pinfo.SetValue(player, e.Value);
 
-        using (var msg = await Http.PutAsJsonAsync<Player>($"/api/customers/{player.Id}", player, System.Threading.CancellationToken.None))
+        using (var msg = await Http.PutAsJsonAsync<Player>($"/api/Players/{player.Id}", player, System.Threading.CancellationToken.None))
         {
             if (msg.IsSuccessStatusCode)
             {
             }
             else
             {
-    // DO SOMETHING
+                // DO SOMETHING
             }
         }
     }

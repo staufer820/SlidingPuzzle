@@ -8,7 +8,7 @@ namespace SlidingPuzzle.Server.Controllers;
 
 
 [ApiController]
-[Route("api/players")]
+[Route("api/[controller]")]
 public class PlayersController : ControllerBase
 {
     private readonly AppDbContext dbContext;
@@ -16,6 +16,21 @@ public class PlayersController : ControllerBase
     public PlayersController(AppDbContext dbContext)
     {
         this.dbContext = dbContext;
+    }
+
+
+    [HttpPut("{id}")]
+    public async Task<Player> Put(Guid id, [FromBody] Player player)
+    {
+        var edit = await this.dbContext.Players.FindAsync(id);
+        if (edit != null)
+        {
+            edit.Email = player.Email;
+            edit.UserName = player.UserName;
+            edit.PwHash = player.PwHash;
+            await this.dbContext.SaveChangesAsync();
+        }
+        return edit;
     }
 
     [HttpPost]
@@ -26,16 +41,19 @@ public class PlayersController : ControllerBase
         return playerEntry.Entity;
     }
 
-    [HttpGet("{userName}")]
-    public async Task<Player> Get(string userName)
+    [HttpGet]
+    public async Task<IEnumerable<Player>> Get()
     {
-        return await this.dbContext.Players.FirstAsync(p => p.UserName == userName);
+        return await Task.Factory.StartNew<IEnumerable<Player>>(() =>
+        {
+                return this.dbContext.Players;
+        });
     }
 
-    [HttpGet]
-    public async  Task<List<Player>> Get()
+    [HttpGet("{Id}")]
+    public async Task<Player> Get(int Id)
     {
-        return new List<Player> { new Player() { Email = "test", UserName = "tester", PwHash = "222" } };
-        return await this.dbContext.Players.ToListAsync();
+        return await this.dbContext.Players.FirstAsync(p => p.Id == Id);
     }
+
 }
