@@ -1,0 +1,15 @@
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\bin\Debug\net6.0\SlidingPuzzlets.Core.deps.json
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\bin\Debug\net6.0\SlidingPuzzlets.Core.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\bin\Debug\net6.0\ref\SlidingPuzzlets.Core.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\bin\Debug\net6.0\SlidingPuzzlets.Core.pdb
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\bin\Debug\net6.0\SlidingPuzzlets.Shared.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\bin\Debug\net6.0\SlidingPuzzlets.Shared.pdb
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\obj\Debug\net6.0\SlidingPuzzlets.Core.csproj.AssemblyReference.cache
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\obj\Debug\net6.0\SlidingPuzzlets.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\obj\Debug\net6.0\SlidingPuzzlets.Core.AssemblyInfoInputs.cache
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\obj\Debug\net6.0\SlidingPuzzlets.Core.AssemblyInfo.cs
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\obj\Debug\net6.0\SlidingPuzzlets.Core.csproj.CoreCompileInputs.cache
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\obj\Debug\net6.0\SlidingPuzzlets.Core.csproj.CopyComplete
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\obj\Debug\net6.0\SlidingPuzzlets.Core.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\obj\Debug\net6.0\ref\SlidingPuzzlets.Core.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzlets.Core\obj\Debug\net6.0\SlidingPuzzlets.Core.pdb

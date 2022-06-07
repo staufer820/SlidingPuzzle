@@ -21,8 +21,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SlidingPuzzlets.Core\SlidingPuzzlets.Core.csproj" />
-  </ItemGroup>
-
 </Project>

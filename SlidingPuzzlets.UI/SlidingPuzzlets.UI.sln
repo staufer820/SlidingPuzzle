@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlidingPuzzlets.UI", "SlidingPuzzlets.UI.csproj", "{A72B88C4-CB08-4C45-8308-F79CF8DFC065}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlidingPuzzle.Server", "..\SlidingPuzzle\Server\SlidingPuzzle.Server.csproj", "{92667D4A-C2E5-4D31-A036-65A9D5266F9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlidingPuzzlets.Core", "..\SlidingPuzzlets.Core\SlidingPuzzlets.Core.csproj", "{452727AD-B578-45A8-9DBF-A5113D2394EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlidingPuzzle.Client", "..\SlidingPuzzle\Client\SlidingPuzzle.Client.csproj", "{76CBEECE-CF63-4E98-AC57-9FBF87ECA536}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlidingPuzzlets.Core.Test", "..\SlidingPuzzlets.Core.Test\SlidingPuzzlets.Core.Test.csproj", "{F8396FFD-39A1-4816-A557-BE65011DC3B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlidingPuzzle.Shared", "..\SlidingPuzzle\Shared\SlidingPuzzle.Shared.csproj", "{D6A8DD24-56C0-4BBC-849D-ECA58DEBCF23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A72B88C4-CB08-4C45-8308-F79CF8DFC065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A72B88C4-CB08-4C45-8308-F79CF8DFC065}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A72B88C4-CB08-4C45-8308-F79CF8DFC065}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A72B88C4-CB08-4C45-8308-F79CF8DFC065}.Release|Any CPU.Build.0 = Release|Any CPU
-		{452727AD-B578-45A8-9DBF-A5113D2394EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{452727AD-B578-45A8-9DBF-A5113D2394EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{452727AD-B578-45A8-9DBF-A5113D2394EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{452727AD-B578-45A8-9DBF-A5113D2394EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8396FFD-39A1-4816-A557-BE65011DC3B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8396FFD-39A1-4816-A557-BE65011DC3B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8396FFD-39A1-4816-A557-BE65011DC3B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8396FFD-39A1-4816-A557-BE65011DC3B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92667D4A-C2E5-4D31-A036-65A9D5266F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92667D4A-C2E5-4D31-A036-65A9D5266F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92667D4A-C2E5-4D31-A036-65A9D5266F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92667D4A-C2E5-4D31-A036-65A9D5266F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76CBEECE-CF63-4E98-AC57-9FBF87ECA536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76CBEECE-CF63-4E98-AC57-9FBF87ECA536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76CBEECE-CF63-4E98-AC57-9FBF87ECA536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76CBEECE-CF63-4E98-AC57-9FBF87ECA536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A8DD24-56C0-4BBC-849D-ECA58DEBCF23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A8DD24-56C0-4BBC-849D-ECA58DEBCF23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A8DD24-56C0-4BBC-849D-ECA58DEBCF23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A8DD24-56C0-4BBC-849D-ECA58DEBCF23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
