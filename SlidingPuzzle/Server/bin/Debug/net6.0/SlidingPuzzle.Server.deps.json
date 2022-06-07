@@ -971,6 +971,7 @@
       },
       "SlidingPuzzle.Shared/1.0.0": {
         "dependencies": {
+          "Microsoft.Extensions.Identity.Stores": "6.0.1",
           "System.ComponentModel.Annotations": "5.0.0"
         },
         "runtime": {

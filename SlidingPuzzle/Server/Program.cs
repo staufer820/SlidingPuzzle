@@ -6,12 +6,13 @@ using SlidingPuzzle.Server;
 using SlidingPuzzle.Server.Data;
 using SlidingPuzzle.Server.Models;
 using Microsoft.EntityFrameworkCore;
+using SlidingPuzzle.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -26,10 +27,6 @@ builder.Services.AddAuthentication()
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseSqlServer(connectionString);
-});
 
 var app = builder.Build();
 
@@ -53,9 +50,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseIdentityServer();
-app.UseAuthentication();
-app.UseAuthorization();
+//app.UseIdentityServer();
+//app.UseAuthentication();
+//app.UseAuthorization();
 
 
 app.MapRazorPages();

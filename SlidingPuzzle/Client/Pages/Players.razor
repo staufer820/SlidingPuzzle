@@ -1,0 +1,93 @@
+﻿@page "/players"
+@inject HttpClient Http
+@using SlidingPuzzle.Shared
+@using SlidingPuzzle.Client.Components
+@using System.Reflection
+
+<h3>Players</h3>
+
+<DataRepeaterComponent Items="players">
+    <Row Context="player">
+        <tr>
+            <td>
+                <input type="text" class="form-control" value="@player.Email" @onchange="@((ChangeEventArgs e) => Save(e, player, "Email"))" />
+            </td>
+            <td>
+                <input type="text" class="form-control" value="@player.UserName" @onchange="@((ChangeEventArgs e) => Save(e, player, "UserName"))" />
+            </td>
+            <td>
+                <input type="text" class="form-control" value="@player.PwHash" @onchange="@((ChangeEventArgs e) => Save(e, player, "PwHash"))" />
+            </td>
+        </tr>
+    </Row>
+</DataRepeaterComponent>
+
+@if (players != null)
+{
+    @foreach (var player in players)
+    {
+        <div>
+            @(player.UserName)
+        </div>
+    }
+}
+Welcome to your new app.
+<form>
+    <input type="email" @bind-value="newPlayer.Email"/>
+    <input type="text" @bind-value="newPlayer.UserName"/>
+    <input type="text" @bind-value="newPlayer.PwHash"/>
+</form>
+<button class="btn btn-success" @onclick="AddPlayer">Add</button>
+
+@code {
+    
+
+    private List<Player>? players;
+    private Player newPlayer = new Player();
+    private string filter;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        players = await Http.GetFromJsonAsync<List<Player>>("/api/players");
+        await base.OnInitializedAsync();
+    }
+
+    
+    private async Task Add()
+    {
+        using (var msg = await Http.PostAsJsonAsync<Player>("/api/players", newPlayer, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                players.Add(await msg.Content.ReadFromJsonAsync<Player>());
+                newPlayer.Email = newPlayer.UserName = newPlayer.PwHash = null;
+            }
+        }
+    }
+    
+    private async Task AddPlayer()
+    {
+        await Http.PostAsJsonAsync<Player>("/api/players", newPlayer);
+        players = new List<Player>
+        {
+            new(){UserName = "sterer"}
+        };
+    }
+    
+    private async Task Save(ChangeEventArgs e, Player player, string propField)
+    {
+        PropertyInfo pinfo = typeof(Player).GetProperty(propField);
+        pinfo.SetValue(player, e.Value);
+
+        using (var msg = await Http.PutAsJsonAsync<Player>($"/api/customers/{player.Id}", player, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+            }
+            else
+            {
+    // DO SOMETHING
+            }
+        }
+    }
+}
