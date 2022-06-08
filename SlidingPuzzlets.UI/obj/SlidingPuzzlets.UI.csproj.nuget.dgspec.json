@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\liana\\source\\repos\\SlidingPuzzle\\SlidingPuzzlets.UI\\SlidingPuzzlets.UI.csproj": {}
+    "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzlets.UI\\SlidingPuzzlets.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\liana\\source\\repos\\SlidingPuzzle\\SlidingPuzzlets.UI\\SlidingPuzzlets.UI.csproj": {
+    "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzlets.UI\\SlidingPuzzlets.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\liana\\source\\repos\\SlidingPuzzle\\SlidingPuzzlets.UI\\SlidingPuzzlets.UI.csproj",
+        "projectUniqueName": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzlets.UI\\SlidingPuzzlets.UI.csproj",
         "projectName": "SlidingPuzzlets.UI",
-        "projectPath": "C:\\Users\\liana\\source\\repos\\SlidingPuzzle\\SlidingPuzzlets.UI\\SlidingPuzzlets.UI.csproj",
-        "packagesPath": "C:\\Users\\liana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\liana\\source\\repos\\SlidingPuzzle\\SlidingPuzzlets.UI\\obj\\",
+        "projectPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzlets.UI\\SlidingPuzzlets.UI.csproj",
+        "packagesPath": "C:\\Users\\Bill\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzlets.UI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\liana\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Bill\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,21 +39,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Components.WebAssembly": {
-              "target": "Package",
-              "version": "[6.0.5, )"
-            },
-            "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
-              "target": "Package",
-              "version": "[6.0.5, )"
-            },
-            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.5, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -68,18 +49,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.5, 6.0.5]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

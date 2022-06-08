@@ -201,16 +201,16 @@
       "mscorlib.dll": "sha256-ghlJNtzzYlKIliGPuf0A0Yu6dmLycSx3F9uyeddFb\/g=",
       "netstandard.dll": "sha256-qpOz\/RBwhlIYfaE2GDEmjiproxkvSf2b9GeqHxvH+lg=",
       "System.Private.CoreLib.dll": "sha256-sfzSZ3YKC2rpF77TVOKLuPgQag93QXr9U4AUc9d\/LKA=",
-      "SlidingPuzzlets.UI.dll": "sha256-frcTHyiNx0509FABXdTXmQaU6Tp1SoYANKAHQBYnYy8="
+      "SlidingPuzzlets.UI.dll": "sha256-CMlo1TtSL+FPM4JHuv2F3kV6V8cqNyVNM1ohdxuWTPQ="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "SlidingPuzzlets.UI.pdb": "sha256-bUXT9d8DPObVJz4jDrV0+BIKK9R\/rf6RGh8plBkBZ6k="
+      "SlidingPuzzlets.UI.pdb": "sha256-1m5VLm47xJFytvE7KLRLn9H7D7bXVPfgw6NjjloTjIk="
     },
     "runtime": {
-      "dotnet.6.0.5.yoe7z8dtbc.js": "sha256-783uOt0jgblQfP6Yz5TJeuW2xxtl6UHZQPngZtCz79U=",
+      "dotnet.6.0.5.erz5cn4szw.js": "sha256-783uOt0jgblQfP6Yz5TJeuW2xxtl6UHZQPngZtCz79U=",
       "dotnet.timezones.blat": "sha256-vRU6+wGzQ3FJ0JtyPJtipblPe9MvJf+qKY20xZhuyKQ=",
       "dotnet.wasm": "sha256-vmRDDmubs49Hwffzas8p5i8FwcPcYxb33H6g5\/2UyYk=",
       "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE=",
