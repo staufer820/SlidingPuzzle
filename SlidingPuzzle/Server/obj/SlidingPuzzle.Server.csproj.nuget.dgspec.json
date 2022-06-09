@@ -1,44 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Server\\SlidingPuzzle.Server.csproj": {}
+    "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Server\\SlidingPuzzle.Server.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\SlidingPuzzle.Client.csproj": {
+    "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Client\\SlidingPuzzle.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\SlidingPuzzle.Client.csproj",
+        "projectUniqueName": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Client\\SlidingPuzzle.Client.csproj",
         "projectName": "SlidingPuzzle.Client",
-        "projectPath": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\SlidingPuzzle.Client.csproj",
-        "packagesPath": "C:\\Users\\lianaeschlimann\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\obj\\",
+        "projectPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Client\\SlidingPuzzle.Client.csproj",
+        "packagesPath": "C:\\Users\\Bill\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Client\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\lianaeschlimann\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Bill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Projects\\CustomNugetPackages": {},
-          "C:\\Projects\\IslandWebViewer\\IslandViewer\\IslandgeneratorSerializer": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://packagesource": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj": {
-                "projectPath": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj"
+              "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj": {
+                "projectPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj"
               }
             }
           }
@@ -52,25 +43,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Components.WebAssembly": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "Microsoft.Extensions.Http": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -81,18 +53,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.1, 6.0.1]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -101,44 +62,35 @@
         }
       }
     },
-    "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Server\\SlidingPuzzle.Server.csproj": {
+    "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Server\\SlidingPuzzle.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Server\\SlidingPuzzle.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Server\\SlidingPuzzle.Server.csproj",
         "projectName": "SlidingPuzzle.Server",
-        "projectPath": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Server\\SlidingPuzzle.Server.csproj",
-        "packagesPath": "C:\\Users\\lianaeschlimann\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Server\\obj\\",
+        "projectPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Server\\SlidingPuzzle.Server.csproj",
+        "packagesPath": "C:\\Users\\Bill\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Server\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\lianaeschlimann\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Bill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Projects\\CustomNugetPackages": {},
-          "C:\\Projects\\IslandWebViewer\\IslandViewer\\IslandgeneratorSerializer": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://packagesource": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\SlidingPuzzle.Client.csproj": {
-                "projectPath": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\SlidingPuzzle.Client.csproj"
+              "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Client\\SlidingPuzzle.Client.csproj": {
+                "projectPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Client\\SlidingPuzzle.Client.csproj"
               },
-              "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj": {
-                "projectPath": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj"
+              "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj": {
+                "projectPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj"
               }
             }
           }
@@ -152,44 +104,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "Microsoft.AspNetCore.Identity.UI": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[6.0.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "MySql.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -200,46 +114,29 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj": {
+    "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj",
         "projectName": "SlidingPuzzle.Shared",
-        "projectPath": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj",
-        "packagesPath": "C:\\Users\\lianaeschlimann\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Shared\\SlidingPuzzle.Shared.csproj",
+        "packagesPath": "C:\\Users\\Bill\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bill\\Source\\Repos\\Sliding_Puzzle\\SlidingPuzzle\\Shared\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\lianaeschlimann\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Bill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Projects\\CustomNugetPackages": {},
-          "C:\\Projects\\IslandWebViewer\\IslandViewer\\IslandgeneratorSerializer": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://packagesource": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -256,16 +153,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.Extensions.Identity.Stores": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "System.ComponentModel.Annotations": {
-              "target": "Package",
-              "version": "[5.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -276,12 +163,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

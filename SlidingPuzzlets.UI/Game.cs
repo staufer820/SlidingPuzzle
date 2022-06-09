@@ -25,14 +25,66 @@ namespace SlidingPuzzlets.UI
             {
                 for (int j = 0; j < this.NumberOfCols; j++)
                 {
-                    this.Fields.Add(new Field(j, i, this));
+                    if (j != this.EmptyField.Col || i != this.EmptyField.Row) this.Fields.Add(new Field(j, i, this));
                 }
             }
         }
 
         public void Randomize()
         {
+            Random random = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                int ranCol = random.Next(0, this.numberOfCols);
+                int ranRow = random.Next(0, this.numberOfCols);
+                this.MovePieces(new Position(ranCol, ranRow, General.Width/this.numCols));
+            }
+        }
 
+        public void MovePieces(Position pos)
+        {
+            List<Field> movingFields = new List<Field>();
+            Direction direction;
+            if (pos.Col == this.EmptyField.Col)
+            {
+                if (pos.Row < this.EmptyField.Row)
+                {
+                    direction = Direction.Down;
+                    foreach (var f in this.Fields)
+                    {
+                        if (f.CurrentPosition.Col == pos.Col && f.CurrentPosition.Row >= pos.Row && f.CurrentPosition.Row < this.EmptyField.Row) movingFields.Add(f);
+                    }
+                }
+                else if (pos.Row > this.EmptyField.Row)
+                {
+                    direction = Direction.Up;
+                    foreach(var f in this.Fields)
+                    {
+                        if (f.CurrentPosition.Col == pos.Col && f.CurrentPosition.Row <= pos.Row && f.CurrentPosition.Row > this.EmptyField.Row) movingFields.Add(f);
+                    }
+                }
+            } 
+            else if (pos.Row == this.EmptyField.Row)
+            {
+                if (pos.Col < this.EmptyField.Col)
+                {
+                    direction = Direction.Right;
+                    foreach (var f in this.Fields)
+                    {
+                        if (f.CurrentPosition.Row == pos.Row && f.CurrentPosition.Col >= pos.Col && f.CurrentPosition.Col < this.EmptyField.Col) movingFields.Add(f);
+                    }
+                }
+                else if (pos.Col > this.EmptyField.Col)
+                {
+                    direction = Direction.Left;
+                    foreach (var f in this.Fields)
+                    {
+                        if (f.CurrentPosition.Row == pos.Row && f.CurrentPosition.Col <= pos.Col && f.CurrentPosition.Col > this.EmptyField.Col) movingFields.Add(f);
+                    }
+                }
+            }
+
+            foreach (var f in movingFields) f.move(direction);
         }
     }
 }

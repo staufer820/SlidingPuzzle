@@ -12,12 +12,14 @@ namespace SlidingPuzzlets.UI
 
     public class Field
     {
-        public Position Position { get; set; }
+        public Position CurrentPosition { get; set; }
+        public Position CorrectPosition { get; set; }
         public Game Game { get; set; }
 
         public Field(int col, int row, Game game)
         {
-            this.Position = new Position(col, row);
+            this.CurrentPosition = new Position(col, row);
+            this.CorrectPosition = new Position(col, row);
             this.Game = game;
         }
 

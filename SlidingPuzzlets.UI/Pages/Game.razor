@@ -3,87 +3,15 @@
 <PageTitle>Game</PageTitle>
 
 <h1>Game</h1>
-<canvas width="600" height="600"></canvas>
+<canvas width="400" height="400"></canvas><br /><br />
 <select id="sizeSelect">
     <option value="3">3x3</option>
     <option value="4">4x4</option>
     <option value="5">5x5</option>
-</select>
-<input id="file" type="file"/>
-
-<script>
-    let canvas = document.querySelector("canvas");
-    let fileInput = document.getElementById("input");
-    let sizeSelect = document.getElementById("sizeSelect");
-
-    class Game {
-        constructor(numberOfCols, imageUrl) {
-            this.numberOfCols = numberOfCols;
-            this.imageUrl = imageUrl;
-            this.fields = [];
-            this.emptyField = new Position(numberOfCols-1, numberOfCols-1, numberOfCols);
-            this.image = document.createElement("image");
-            this.image.setAttribute("src", imageUrl);
-            this.setup();
-        }
-
-        setup() {
-            for (let i = 0; i < this.numberOfCols; i++) {
-                for (let j = 0; j < this.numberOfCols; j++) {
-                    this.fields.push(new Piece(j, i, this));
-                }
-            }
-        }
-    }
-
-    class Position {
-        constructor(col, row, pieceSize) {
-            this.col = col;
-            this.row = row;
-            this.pieceSize = pieceSize;   
-            this.update();
-        }
-
-        update() {
-            this.x = this.col * this.pieceSize;
-            this.y = this.row * this.pieceSize;
-        }
-    }
-
-    class Piece {
-        constructor(x, y, game) {
-            this.position = new Position(x, y, canvas.width/game.numberOfCols);
-            this.startingPosition = new Position(x, y, canvas.height/game.numberOfCols);
-            this.game = game;
-            this.draw();
-        }
-
-        move(dir) {
-            if (dir == 0) {
-                if (this.position.row > 0) this.position.row--;
-            } else if (dir == 1) {
-                if (this.position.col < this.game.numberOfCols - 1) this.position.col++;
-            } else if (dir == 2) {
-                if (this.position.row < this.game.numberOfCols - 1) this.position.row++;
-            } else {
-                if (this.position.col > 0) this.position.col--;
-            }
-            this.position.update();
-            this.draw();
-        }
-
-        draw() {
-            let ctx = canvas.getContext("2d");
-            ctx.drawImage(this.game.image, this.startingPosition.x, this.startingPosition.y, this.position.x, this.position.y, this.position.pieceSize, this.position.pieceSize);
-        }
-    }
-
-    fileInput.addEventListener("input", function () {
-        new Game(sizeSelect.value, fileInput.value);
-    });
-</script>
+</select><br /><br />
+<input id="file" type="file"/><br /><br />
+<button></button>
 
 @code {
 
-   
 }

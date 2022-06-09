@@ -4,6 +4,6 @@
     "\\SlidingPuzzlets.UI",
     "\\SlidingPuzzlets.UI\\Pages"
   ],
-  "SelectedNode": "\\SlidingPuzzlets.UI\\SlidingPuzzlets.UI.csproj",
+  "SelectedNode": "\\SlidingPuzzlets.UI\\Pages\\Game.razor",
   "PreviewInSolutionExplorer": false
 }
