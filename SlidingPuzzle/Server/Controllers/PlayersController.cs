@@ -20,14 +20,12 @@ public class PlayersController : ControllerBase
 
 
     [HttpPut("{id}")]
-    public async Task<Player> Put(Guid id, [FromBody] Player player)
+    public async Task<Player> Put(string id, [FromBody] PlayerGame playerGame)
     {
         var edit = await this.dbContext.Players.FindAsync(id);
         if (edit != null)
         {
-            edit.Email = player.Email;
-            edit.UserName = player.UserName;
-            edit.PasswordHash = player.PasswordHash;
+            edit.PlayerGame = playerGame;
             await this.dbContext.SaveChangesAsync();
         }
         return edit;
