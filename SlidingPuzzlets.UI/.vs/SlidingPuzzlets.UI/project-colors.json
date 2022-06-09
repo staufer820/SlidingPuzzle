@@ -1,0 +1,61 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a72b88c4-cb08-4c45-8308-f79cf8dfc065": {
+      "ProjectGuid": "a72b88c4-cb08-4c45-8308-f79cf8dfc065",
+      "DisplayName": "SlidingPuzzlets.UI",
+      "ColorIndex": 0
+    },
+    "452727ad-b578-45a8-9dbf-a5113d2394ec": {
+      "ProjectGuid": "452727ad-b578-45a8-9dbf-a5113d2394ec",
+      "DisplayName": "SlidingPuzzlets.Core",
+      "ColorIndex": 1
+    },
+    "f8396ffd-39a1-4816-a557-be65011dc3b6": {
+      "ProjectGuid": "f8396ffd-39a1-4816-a557-be65011dc3b6",
+      "DisplayName": "SlidingPuzzlets.Core.Test",
+      "ColorIndex": 2
+    },
+    "53f8a715-747f-482d-adc5-fdc35c256efc": {
+      "ProjectGuid": "53f8a715-747f-482d-adc5-fdc35c256efc",
+      "DisplayName": "SlidingPuzzlets.Shared",
+      "ColorIndex": 3
+    },
+    "5a1c3179-e24b-475f-a60b-bb4c02009429": {
+      "ProjectGuid": "5a1c3179-e24b-475f-a60b-bb4c02009429",
+      "DisplayName": "BlazorApp1.Server",
+      "ColorIndex": 4
+    },
+    "45a0e9dc-c5bf-4d32-a5a4-9361839833b5": {
+      "ProjectGuid": "45a0e9dc-c5bf-4d32-a5a4-9361839833b5",
+      "DisplayName": "BlazorApp1.Client",
+      "ColorIndex": 5
+    },
+    "52ccf851-6d04-4530-87cc-4b487f48b860": {
+      "ProjectGuid": "52ccf851-6d04-4530-87cc-4b487f48b860",
+      "DisplayName": "BlazorApp1.Shared",
+      "ColorIndex": 6
+    },
+    "92667d4a-c2e5-4d31-a036-65a9d5266f9f": {
+      "ProjectGuid": "92667d4a-c2e5-4d31-a036-65a9d5266f9f",
+      "DisplayName": "SlidingPuzzle.Server",
+      "ColorIndex": 7
+    },
+    "76cbeece-cf63-4e98-ac57-9fbf87eca536": {
+      "ProjectGuid": "76cbeece-cf63-4e98-ac57-9fbf87eca536",
+      "DisplayName": "SlidingPuzzle.Client",
+      "ColorIndex": 8
+    },
+    "d6a8dd24-56c0-4bbc-849d-eca58debcf23": {
+      "ProjectGuid": "d6a8dd24-56c0-4bbc-849d-eca58debcf23",
+      "DisplayName": "SlidingPuzzle.Shared",
+      "ColorIndex": 9
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Sonstige Dateien",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 10
+}
