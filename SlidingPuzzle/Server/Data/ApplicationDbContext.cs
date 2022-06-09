@@ -16,8 +16,6 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<Player>
     }
     public DbSet<Player> Players { get; set; }
     public DbSet<PlayerGame> PlayerGames { get; set; }
-    public DbSet<Puzzle> Puzzles { get; set; }
     public DbSet<PuzzlePiece> PuzzlePieces { get; set; }
-    public DbSet<PuzzlePiecePosition> PuzzlePiecePositions { get; set; }
 
 }

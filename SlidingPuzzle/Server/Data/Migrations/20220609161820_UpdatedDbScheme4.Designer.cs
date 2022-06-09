@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SlidingPuzzle.Server.Data;
 
@@ -11,9 +12,10 @@ using SlidingPuzzle.Server.Data;
 namespace SlidingPuzzle.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220609161820_UpdatedDbScheme4")]
+    partial class UpdatedDbScheme4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -342,9 +344,6 @@ namespace SlidingPuzzle.Server.Data.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("PlayerGameId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -365,8 +364,6 @@ namespace SlidingPuzzle.Server.Data.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("PlayerGameId");
-
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
@@ -381,10 +378,16 @@ namespace SlidingPuzzle.Server.Data.Migrations
                     b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<string>("PlayerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<float?>("TimePassed")
                         .HasColumnType("real");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PlayerId");
 
                     b.ToTable("PlayerGames");
                 });
@@ -470,13 +473,15 @@ namespace SlidingPuzzle.Server.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SlidingPuzzle.Shared.Player", b =>
+            modelBuilder.Entity("SlidingPuzzle.Shared.PlayerGame", b =>
                 {
-                    b.HasOne("SlidingPuzzle.Shared.PlayerGame", "PlayerGame")
+                    b.HasOne("SlidingPuzzle.Shared.Player", "Player")
                         .WithMany()
-                        .HasForeignKey("PlayerGameId");
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("PlayerGame");
+                    b.Navigation("Player");
                 });
 
             modelBuilder.Entity("SlidingPuzzle.Shared.PuzzlePiece", b =>

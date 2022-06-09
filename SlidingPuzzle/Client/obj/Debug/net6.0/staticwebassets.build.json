@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Bc2302e2W8jcYVdDTFWaNKSDpsa1+v9v80rAXMtc+kI=",
+  "Hash": "sJ6vh06nYJtK7iTj31FnLXRPuXT1Hi8/ipxn2RoD/vg=",
   "Source": "SlidingPuzzle.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -102,23 +102,6 @@
       "OriginalItemSpec": "C:\\Users\\lianaeschlimann\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.1\\runtimes\\browser-wasm\\native\\dotnet.wasm"
     },
     {
-      "Identity": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt.dat",
-      "SourceId": "SlidingPuzzle.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt.dat",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorWebAssemblyResource",
-      "AssetTraitValue": "native",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\lianaeschlimann\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.1\\runtimes\\browser-wasm\\native\\icudt.dat"
-    },
-    {
       "Identity": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt_CJK.dat",
       "SourceId": "SlidingPuzzle.Client",
       "SourceType": "Computed",
@@ -168,6 +151,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\lianaeschlimann\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.1\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
+    },
+    {
+      "Identity": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt.dat",
+      "SourceId": "SlidingPuzzle.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt.dat",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "native",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\lianaeschlimann\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.1\\runtimes\\browser-wasm\\native\\icudt.dat"
     },
     {
       "Identity": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
@@ -7225,6 +7225,23 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Identity": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "SourceId": "SlidingPuzzle.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
+    },
+    {
       "Identity": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "SlidingPuzzle.Client",
       "SourceType": "Discovered",
@@ -7325,23 +7342,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
-    },
-    {
-      "Identity": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
-      "SourceId": "SlidingPuzzle.Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
       "Identity": "C:\\Projects\\SlidingPuzzle\\SlidingPuzzle\\Client\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
