@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SlidingPuzzle.Shared;
+namespace SlidingPuzzle.Shared
 
 [Serializable]
 public class PlayerGame
