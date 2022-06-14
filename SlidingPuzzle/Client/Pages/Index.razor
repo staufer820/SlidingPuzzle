@@ -22,23 +22,21 @@
 <br /><br />
 <label>Bild hochladen</label>
 <InputFile OnChange="@LoadImage" single />
-<input accept="image/*" id="cImage" name="image" onchange="@LoadImage" type="file"/>
 <button @onclick="StartGame">Start</button>
 
 <div @ref="divCanvas" id="canvasDiv" @onclick="OnClick">
     <BECanvas @ref="myCanvas" Height="800" Width="800"></BECanvas>
 </div>
 
-<img @ref="imgRef" src="@Image64"/>
+<img @ref="imgRef" src="@Image64" alt="Puzzle Img"/>
 
 @code
 {
     public ElementReference divCanvas;
-    public ElementReference imgRef;
+    public static ElementReference imgRef;
     public static BECanvasComponent myCanvas;
     public static Canvas2DContext? ctx;
     public static string Image64 { get; set; }
-    public static ElementReference image { get; set; }
     public int sizeSelect { get; set; } = 3;
     public Game game { get; set; }
     public string timeDisplay { get; set; }
@@ -49,7 +47,7 @@
         public Position emptyField;
         public TimeSpan time;
         public bool gameover;
-        public int imageHeight = 1080;
+        public int imageHeight = 1920;
         public int imageWidth = 1920;
 
         public Game(int numberOfCols = 0, byte[]? buffer = null) {
@@ -75,13 +73,13 @@
             return zeroM + min + ":" + zeroS + sec;*/
         }
 
-        private void LoadImage(byte[] imageBuffer) {
+        private async Task LoadImage(byte[] imageBuffer) {
             Image64 = $"data:image/png;base64,{Convert.ToBase64String(imageBuffer)}";
             //Image64 = "data:image/png;base64," + Convert.ToBase64String(imageBuffer);
         }
 
         public async Task Setup() {
-            this.LoadImage(this.ImageBuffer);
+            await this.LoadImage(this.ImageBuffer);
             ctx = await myCanvas.CreateCanvas2DAsync();
             await ctx.ClearRectAsync(0, 0, myCanvas.Width, myCanvas.Height);
             int count = 0;
@@ -248,7 +246,7 @@ public class Piece {
 
     public Piece(int x, int y, Game game) {
         this.position = new Position(x, y, myCanvas.Width / game.numberOfCols, myCanvas.Height / game.numberOfCols);
-        this.sourcePosition = new Position(x, y, game.imageWidth / game.numberOfCols, game.imageHeight / game.numberOfCols);
+        this.sourcePosition = new Position(x, y, myCanvas.Width / game.numberOfCols, myCanvas.Height / game.numberOfCols);
         this.startingPosition = new Position(x, y, myCanvas.Width / game.numberOfCols, myCanvas.Height / game.numberOfCols);
         this.game = game;
     }
@@ -268,10 +266,10 @@ public class Piece {
 
     public async Task Draw() {
         Canvas2DContext? ctx = await myCanvas.CreateCanvas2DAsync();
-        await ctx.SetFillStyleAsync("gray");
+        await ctx.SetFillStyleAsync("white");
         await ctx.ClearRectAsync(this.game.emptyField.x, this.game.emptyField.y, this.game.emptyField.pieceWidth, this.game.emptyField.pieceHeight);
         await ctx.ClearRectAsync(this.position.x, this.position.y, this.position.pieceWidth, this.position.pieceHeight);
-        await ctx.DrawImageAsync(image, this.sourcePosition.x, this.sourcePosition.y,
+        await ctx.DrawImageAsync(imgRef, this.sourcePosition.x, this.sourcePosition.y,
             this.sourcePosition.pieceWidth, this.sourcePosition.pieceHeight, this.position.x, this.position.y,
             this.position.pieceWidth, this.position.pieceHeight);
     }
@@ -296,6 +294,7 @@ public class Piece {
 
     public async Task LoadImage(InputFileChangeEventArgs arg)
     {
+        await arg.File.RequestImageFileAsync("png", 1920, 1920);
         var path = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
         await using var fs = new FileStream(path, FileMode.Create);
         await arg.File.OpenReadStream().CopyToAsync(fs);
