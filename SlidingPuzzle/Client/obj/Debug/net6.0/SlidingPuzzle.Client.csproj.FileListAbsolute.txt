@@ -853,3 +853,15 @@ C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\obj\Debug\net6.0\build-gz\T++fFth
 C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\obj\Debug\net6.0\build-gz\E2p24LUJ.gz
 C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\obj\Debug\net6.0\build-gz\IW6HtgiZ.gz
 C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\obj\Debug\net6.0\build-gz\z6r9XMSg.gz
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\bin\Debug\net6.0\wwwroot\_framework\Blazor.Extensions.Canvas.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\bin\Debug\net6.0\wwwroot\_framework\Blazor.Extensions.Canvas.JS.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\bin\Debug\net6.0\wwwroot\_framework\Blazor.Extensions.Canvas.dll.gz
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\bin\Debug\net6.0\wwwroot\_framework\Blazor.Extensions.Canvas.JS.dll.gz
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\bin\Debug\net6.0\Blazor.Extensions.Canvas.JS.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\bin\Debug\net6.0\Blazor.Extensions.Canvas.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\obj\Debug\net6.0\build-gz\xLbIPpxf.gz
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\obj\Debug\net6.0\build-gz\2R5q++8X.gz
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Client\obj\Debug\net6.0\build-gz\Z24lh5+q.gz

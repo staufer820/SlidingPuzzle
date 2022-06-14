@@ -109,3 +109,5 @@ C:\Projects\SlidingPuzzle\SlidingPuzzle\Server\obj\Debug\net6.0\ref\SlidingPuzzl
 C:\Projects\SlidingPuzzle\SlidingPuzzle\Server\obj\Debug\net6.0\SlidingPuzzle.Server.pdb
 C:\Projects\SlidingPuzzle\SlidingPuzzle\Server\obj\Debug\net6.0\SlidingPuzzle.Server.genruntimeconfig.cache
 C:\Projects\SlidingPuzzle\SlidingPuzzle\Server\obj\Debug\net6.0\SlidingPuzzle.Server.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Server\bin\Debug\net6.0\Blazor.Extensions.Canvas.JS.dll
+C:\Projects\SlidingPuzzle\SlidingPuzzle\Server\bin\Debug\net6.0\Blazor.Extensions.Canvas.dll

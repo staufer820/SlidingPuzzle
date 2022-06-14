@@ -7,6 +7,8 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
+      "Blazor.Extensions.Canvas.JS.dll": "sha256-TrW1uaSNUS+J8xVJErxIf1NQuNC7kn50KzMYYF\/4JtM=",
+      "Blazor.Extensions.Canvas.dll": "sha256-W20pWMXQg2yTv0w4VJhrjCJKNRYe3PiUU9S76XipNe8=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-hGbT4jDhpi63093bjGt+4XVJ3Z9t1FVbmgNmYYmpiNY=",
       "Microsoft.AspNetCore.Components.dll": "sha256-NJ2GmZOAzlolS7ZPvt5guh86ICBupqwCNK0ygg7fkhE=",
       "Microsoft.AspNetCore.Components.Authorization.dll": "sha256-JE3kRVO7ej\/zCUUshzEyxzoY+yl8N\/AdGAX9tVpcNGA=",
@@ -37,6 +39,7 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-jOmoWSfsdQexH\/6QCA56gR1RMEqeix2iDDUBWbpAOQI=",
       "Microsoft.JSInterop.dll": "sha256-U4TlhQzx2DEFb2LgmELxAvWalkXk5Dx\/HsVDyQH8ubA=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-11MM537VpREUoEMIiXr2jsO5eqHCkixj9Zi1I4hLPOw=",
+      "Newtonsoft.Json.dll": "sha256-cs8pHUurDt0IqbB8YXPh560au3q3J\/1wRL9jBddRVmE=",
       "System.IO.Pipelines.dll": "sha256-fpnawcAWgJ8i0JPJ9DhQ8XFDKYsTi6md2eRFNh\/bONA=",
       "Microsoft.CSharp.dll": "sha256-G204dE5axR66hiRzw+nCGd4NhoW2pyGNAYxvjKjtbY0=",
       "Microsoft.VisualBasic.Core.dll": "sha256-jwW4\/Q\/7wz7Q2oAlGi4JWwPkJHhDDnumGSirhZNF3h4=",
@@ -204,15 +207,15 @@
       "mscorlib.dll": "sha256-+5VU+MYaTQMTlRe9QKobEjWZWv6I9teAGdNndWSBqWE=",
       "netstandard.dll": "sha256-E5RFhGIaDH5QM6BEbFUuHU8U9wP6N6jbo5MCttzLOCM=",
       "System.Private.CoreLib.dll": "sha256-9NtEbYixyog7vUmeYXyyqzfBXUYl8wxoVQ26Ji7sNRg=",
-      "SlidingPuzzle.Shared.dll": "sha256-DmSiMEmywQMjDxNzFt5Vaf74cHz3tfUDFtDtLnsw6Yo=",
-      "SlidingPuzzle.Client.dll": "sha256-GLLpMMhQaem94P36bdj2kK38aZ25m98D6oc2A5RLx2g="
+      "SlidingPuzzle.Shared.dll": "sha256-+Cs\/ckPKShd6dId7UtU5tF5dUBx0u9hZX2B6Ez\/7m7o=",
+      "SlidingPuzzle.Client.dll": "sha256-vxIRBj60bycqhRhsPJz3v7DJqzKCiAebYi3Rl4yUVoM="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "SlidingPuzzle.Shared.pdb": "sha256-Bu37ySW3XZl8s\/hMXHi48TA6dpDHJ0lsIa90THPaDos=",
-      "SlidingPuzzle.Client.pdb": "sha256-OO\/+MxM3IlNLVVh\/X322LiGdJwM7yuZhiWmPAN54JT8="
+      "SlidingPuzzle.Shared.pdb": "sha256-hFI8kvQMCJjc62q59Psqpr4GM7E0ujyYCrs1V29lFtk=",
+      "SlidingPuzzle.Client.pdb": "sha256-wrziUmNFmZHSozcBwoIkK1Z+uScWMlx6yGvRKm4AtiE="
     },
     "runtime": {
       "dotnet.6.0.1.fu5h8681i2.js": "sha256-awQsJ\/WxYhouHPuE+i3eJqjA4XClQlr2rD6nKvW80ww=",

@@ -229,7 +229,7 @@ let game = null;
 
 fileInput.addEventListener("input", async function (e1) {
 
-    let result = await e1.target.files[0].arrayBuffer()
+    let result = await e1.target.files[0].arrayBuffer();
     game = new Game(sizeSelect.value, result, e1.target.files[0]);
     game.setup();
 

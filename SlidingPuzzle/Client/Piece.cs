@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+/*
 namespace SlidingPuzzlets.UI
 {
     public enum Direction
@@ -48,3 +49,4 @@ namespace SlidingPuzzlets.UI
         }
     }
 }
+*/

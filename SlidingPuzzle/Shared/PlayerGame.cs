@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SlidingPuzzle.Shared
+namespace SlidingPuzzle.Shared;
 
 [Serializable]
 public class PlayerGame
 {
     [Key]
     public int Id { get; set; }
-    
+        
     [Required]
     public virtual Player Player { get; set; }
 
