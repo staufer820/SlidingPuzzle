@@ -7,21 +7,22 @@
 @using System.Net.Mime
 @using Newtonsoft.Json
 @using Newtonsoft.Json.Linq
+@using SixLabors.ImageSharp
 @inject HttpClient Http
 @inject IJSRuntime JsRuntime
 
 <PageTitle>Index</PageTitle>
 
 <h1>Sliding Puzzle</h1>
-<select id="sizeSelect" >
+<select id="sizeSelect">
     <option value="3">3x3</option>
     <option value="4">4x4</option>
     <option value="5">5x5</option>
 </select>
 @timeDisplay
-<br /><br />
+<br/><br/>
 <label>Bild hochladen</label>
-<InputFile OnChange="@LoadImage" single />
+<InputFile OnChange="@LoadImage" single/>
 <button @onclick="StartGame">Start</button>
 
 <div @ref="divCanvas" id="canvasDiv" @onclick="OnClick">
@@ -41,67 +42,68 @@
     public Game game { get; set; }
     public string timeDisplay { get; set; }
 
-    public class Game {
+    public class Game
+    {
         public int numberOfCols;
         private List<Piece> fields;
         public Position emptyField;
         public TimeSpan time;
         public bool gameover;
-        public int imageHeight = 1920;
-        public int imageWidth = 1920;
+        public Image Image;
 
-        public Game(int numberOfCols = 0, byte[]? buffer = null) {
+        public Game(int numberOfCols = 0, byte[]? buffer = null)
+        {
             this.numberOfCols = numberOfCols;
             this.fields = new List<Piece>();
             this.emptyField = new Position(numberOfCols - 1, numberOfCols - 1, myCanvas.Width / numberOfCols, myCanvas.Height / numberOfCols);
             this.ImageBuffer = buffer;
             this.time = TimeSpan.Zero;
             this.gameover = true;
-
         }
 
         public byte[]? ImageBuffer { get; set; }
-        
+
 
         public string TimeString()
         {
             return time.ToString();
-            /*let min = (this.time - (this.time % 60)) / 60;
-            let sec = (this.time) % 60;
-            let zeroS = (sec < 10) ? "0" : "";
-            let zeroM = (min < 10) ? "0" : "";
-            return zeroM + min + ":" + zeroS + sec;*/
         }
 
-        private async Task LoadImage(byte[] imageBuffer) {
+        private void LoadImage(byte[] imageBuffer)
+        {
             Image64 = $"data:image/png;base64,{Convert.ToBase64String(imageBuffer)}";
-            //Image64 = "data:image/png;base64," + Convert.ToBase64String(imageBuffer);
+            imgRef.FocusAsync();
         }
 
-        public async Task Setup() {
-            await this.LoadImage(this.ImageBuffer);
+        public async Task Setup()
+        {
+            this.LoadImage(this.ImageBuffer);
             ctx = await myCanvas.CreateCanvas2DAsync();
             await ctx.ClearRectAsync(0, 0, myCanvas.Width, myCanvas.Height);
-            int count = 0;
-            for (int x = 0; x < this.numberOfCols; x++) {
-                for (int y = 0; y < this.numberOfCols; y++) {
-                    if (x < this.numberOfCols - 1 || y < this.numberOfCols - 1) {
+            for (int x = 0; x < this.numberOfCols; x++)
+            {
+                for (int y = 0; y < this.numberOfCols; y++)
+                {
+                    if (x < this.numberOfCols - 1 || y < this.numberOfCols - 1)
+                    {
                         var piece = new Piece(y, x, this);
-                        await piece.Draw();
                         this.fields.Add(piece);
-                        count++;
+                        await piece.Draw();
                     }
                 }
             }
         }
 
-        public async Task Randomize() {
+        public async Task Randomize()
+        {
             this.time = TimeSpan.Zero;
-            for (int i = 0; i < 100 * this.numberOfCols; i++) {
+            for (int i = 0; i < 100 * this.numberOfCols; i++)
+            {
                 bool movable = false;
                 int rrow = 0;
                 int rcol = 0;
-                while (!movable) {
+                while (!movable)
+                {
                     rcol = Convert.ToInt32(Math.Floor((decimal)Random.Shared.NextDouble() * this.numberOfCols));
                     rrow = Convert.ToInt32(Math.Floor((decimal)Random.Shared.NextDouble() * this.numberOfCols));
                     movable = rcol == this.emptyField.col || rrow == this.emptyField.row;
@@ -112,12 +114,15 @@
             this.gameover = false;
         }
 
-        public async Task MovePieces((int col, int row) position) {
+        public async Task MovePieces((int col, int row) position)
+        {
             List<Piece> movingPieces = new List<Piece>();
             int direction = 0;
 
-            if (this.emptyField.col == position.col) {
-                if (this.emptyField.row < position.row) {
+            if (this.emptyField.col == position.col)
+            {
+                if (this.emptyField.row < position.row)
+                {
                     foreach (Piece field in fields)
                     {
                         if (field.position.col == position.col
@@ -128,38 +133,49 @@
                         }
                     }
                     direction = 0;
-                } else if (this.emptyField.row > position.row) {
+                }
+                else if (this.emptyField.row > position.row)
+                {
                     foreach (Piece field in fields)
                     {
                         if (field.position.col == position.col &&
-                            field.position.row < this.emptyField.row && field.position.row >= position.row) {
+                            field.position.row < this.emptyField.row && field.position.row >= position.row)
+                        {
                             movingPieces.Add(field);
                         }
                     }
                     direction = 2;
                 }
-            } else if (this.emptyField.row == position.row) {
-                if (this.emptyField.col < position.col) {
+            }
+            else if (this.emptyField.row == position.row)
+            {
+                if (this.emptyField.col < position.col)
+                {
                     foreach (Piece field in fields)
                     {
                         if (field.position.row == position.row &&
-                            field.position.col > this.emptyField.col && field.position.col <= position.col) {
+                            field.position.col > this.emptyField.col && field.position.col <= position.col)
+                        {
                             movingPieces.Add(field);
                         }
                     }
                     direction = 3;
-                } else if (this.emptyField.col > position.col) {
+                }
+                else if (this.emptyField.col > position.col)
+                {
                     foreach (Piece field in fields)
                     {
                         if (field.position.row == position.row &&
-                            field.position.col < this.emptyField.col && field.position.col >= position.col) {
+                            field.position.col < this.emptyField.col && field.position.col >= position.col)
+                        {
                             movingPieces.Add(field);
                         }
                     }
                     direction = 1;
                 }
             }
-            if (movingPieces.Count > 0) {
+            if (movingPieces.Count > 0)
+            {
                 this.emptyField.row = position.row;
                 this.emptyField.col = position.col;
                 foreach (Piece mp in movingPieces)
@@ -170,110 +186,93 @@
             await this.CheckWin();
         }
 
-        private async Task CheckWin() {
+        private async Task CheckWin()
+        {
             bool gameover = true;
             foreach (Piece f in fields)
             {
-                if (!(f.position.col == f.startingPosition.col && f.position.row == f.startingPosition.row)) {
+                if (!(f.position.col == f.startingPosition.col && f.position.row == f.startingPosition.row))
+                {
                     gameover = false;
                 }
             }
 
-            if (gameover) {
+            if (gameover)
+            {
                 this.gameover = true;
                 var lastpiece = new Piece(this.numberOfCols - 1, this.numberOfCols - 1, this);
                 await lastpiece.Draw();
             }
         }
+    }
 
-        /*static async load(json) {
-            let game = await JSON.parse(json);
-            let loadedGame = new Game()
-            loadedGame.ImageBuffer = new Uint32Array(game.imageBuffer);
-            await loadedGame.loadImage(loadedGame.imageBuffer);
-            loadedGame.numberOfCols = game.numberOfCols;
-            loadedGame.fields = game.fields;
-            game.fields.forEach(f => {
-                let piece = Object.create(Piece.prototype);
-                piece.position = f.position;
-                piece.startingPosition = f.startingPosition;
-                piece.sourcePosition = f.sourcePosition;
-                piece.game = loadedGame;
-                piece.draw();
 
-                loadedGame.fields.push(piece);
-            });
-            loadedGame.emptyField = game.emptyField;
+    public class Position
+    {
+        public int col;
+        public int row;
+        public double pieceWidth;
+        public double pieceHeight;
 
-            loadedGame.gameover = game.gameover;
-            loadedGame.time = game.time;
-
-            console.log(game);
-            return loadedGame
+        public Position(int col, int row, double width, double height)
+        {
+            this.col = col;
+            this.row = row;
+            this.pieceWidth = width;
+            this.pieceHeight = height;
         }
 
-        save() {
-            let json = JSON.stringify(this);
-            console.log(json);
-            return json;
-        }*/
-    }
-    
-
-public class Position {
-    public int col;
-    public int row;
-    public double pieceWidth;
-    public double pieceHeight;
-
-    public Position(int col,int row,double width,double height) {
-        this.col = col;
-        this.row = row;
-        this.pieceWidth = width;
-        this.pieceHeight = height;
+        public double x => this.col * this.pieceWidth;
+        public double y => this.row * this.pieceHeight;
     }
 
-    public double x => this.col * this.pieceWidth;
-    public double y => this.row * this.pieceHeight;
+    public class Piece
+    {
+        public Position position;
+        private Position sourcePosition;
+        public Position startingPosition;
+        private Game game;
 
-}
-
-public class Piece {
-    public Position position;
-    private Position sourcePosition;
-    public Position startingPosition;
-    private Game game;
-
-    public Piece(int x, int y, Game game) {
-        this.position = new Position(x, y, myCanvas.Width / game.numberOfCols, myCanvas.Height / game.numberOfCols);
-        this.sourcePosition = new Position(x, y, myCanvas.Width / game.numberOfCols, myCanvas.Height / game.numberOfCols);
-        this.startingPosition = new Position(x, y, myCanvas.Width / game.numberOfCols, myCanvas.Height / game.numberOfCols);
-        this.game = game;
-    }
-    
-    public async Task Move(int dir) {
-        if (dir == 0) {
-            if (this.position.row > 0) this.position.row--;
-        } else if (dir == 1) {
-            if (this.position.col < this.game.numberOfCols - 1) this.position.col++;
-        } else if (dir == 2) {
-            if (this.position.row < this.game.numberOfCols - 1) this.position.row++;
-        } else {
-            if (this.position.col > 0) this.position.col--;
+        public Piece(int x, int y, Game game)
+        {
+            this.position = new Position(x, y, myCanvas.Width / game.numberOfCols, myCanvas.Height / game.numberOfCols);
+            this.sourcePosition = new Position(x, y, game.Image.Width / game.numberOfCols, game.Image.Height / game.numberOfCols);
+            this.startingPosition = new Position(x, y, myCanvas.Width / game.numberOfCols, myCanvas.Height / game.numberOfCols);
+            this.game = game;
         }
-        await this.Draw();
-    }
 
-    public async Task Draw() {
-        Canvas2DContext? ctx = await myCanvas.CreateCanvas2DAsync();
-        await ctx.SetFillStyleAsync("white");
-        await ctx.ClearRectAsync(this.game.emptyField.x, this.game.emptyField.y, this.game.emptyField.pieceWidth, this.game.emptyField.pieceHeight);
-        await ctx.ClearRectAsync(this.position.x, this.position.y, this.position.pieceWidth, this.position.pieceHeight);
-        await ctx.DrawImageAsync(imgRef, this.sourcePosition.x, this.sourcePosition.y,
-            this.sourcePosition.pieceWidth, this.sourcePosition.pieceHeight, this.position.x, this.position.y,
-            this.position.pieceWidth, this.position.pieceHeight);
+        public async Task Move(int dir)
+        {
+            if (dir == 0)
+            {
+                if (this.position.row > 0) this.position.row--;
+            }
+            else if (dir == 1)
+            {
+                if (this.position.col < this.game.numberOfCols - 1) this.position.col++;
+            }
+            else if (dir == 2)
+            {
+                if (this.position.row < this.game.numberOfCols - 1) this.position.row++;
+            }
+            else
+            {
+                if (this.position.col > 0) this.position.col--;
+            }
+            await this.Draw();
+        }
+
+        public async Task Draw()
+        {
+            Canvas2DContext? ctx = await myCanvas.CreateCanvas2DAsync();
+            await ctx.SetFillStyleAsync("white");
+            await ctx.ClearRectAsync(this.game.emptyField.x, this.game.emptyField.y, this.game.emptyField.pieceWidth, this.game.emptyField.pieceHeight);
+            await ctx.ClearRectAsync(this.position.x, this.position.y, this.position.pieceWidth, this.position.pieceHeight);
+            await ctx.DrawImageAsync(imgRef, this.sourcePosition.x, this.sourcePosition.y,
+                this.sourcePosition.pieceWidth, this.sourcePosition.pieceHeight, this.position.x, this.position.y,
+                this.position.pieceWidth, this.position.pieceHeight);
+        }
     }
-}
 
     public async Task StartGame()
     {
@@ -287,28 +286,23 @@ public class Piece {
             }
             else
             {
-                game = null;
+                return;
             }
         }, null, 0, 1000);
     }
 
     public async Task LoadImage(InputFileChangeEventArgs arg)
     {
-        await arg.File.RequestImageFileAsync("png", 1920, 1920);
         var path = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
         await using var fs = new FileStream(path, FileMode.Create);
-        await arg.File.OpenReadStream().CopyToAsync(fs);
+        await arg.File.OpenReadStream(1024 * 1024 * 1024).CopyToAsync(fs);
         byte[] bytes = new byte[arg.File.Size];
         fs.Position = 0;
         await fs.ReadAsync(bytes);
         fs.Close();
         File.Delete(path);
-        /*
-        await using FileStream fs = new FileStream(arg.File.Name, FileMode.Create);
-        await openReadStream.CopyToAsync(fs);
-        string fsName = fs.Name;
-        await fs.ReadAsync(bytes, 0, (int)openReadStream.Length);*/
         game = new Game(sizeSelect, bytes);
+        game.Image = Image.Load(bytes);
         await game.Setup();
     }
 
@@ -317,15 +311,11 @@ public class Piece {
         string data = await JsRuntime.InvokeAsync<string>("getDivCanvasOffsets",
             new object[] { divCanvas });
         var offsets = (JObject)JsonConvert.DeserializeObject(data)!;
-        if (!game.gameover) {
+        if (!game.gameover)
+        {
             int col = (int)Math.Floor((arg.ClientX - offsets.Value<double>("offsetLeft")) / (myCanvas.Width / game.numberOfCols));
             int row = (int)Math.Floor((arg.ClientY - offsets.Value<double>("offsetLeft")) / (myCanvas.Height / game.numberOfCols));
             await game.MovePieces((col, row));
         }
-    }
-
-    private Task LoadImages(ChangeEventArgs arg)
-    {
-        throw new NotImplementedException();
     }
 }
