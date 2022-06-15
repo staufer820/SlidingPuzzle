@@ -29,7 +29,7 @@
     <BECanvas @ref="myCanvas" Height="800" Width="800"></BECanvas>
 </div>
 
-<img @ref="imgRef" src="@Image64" alt="Puzzle Img"/>
+<img @ref="imgRef" src="@Image64" alt="Puzzle Img" hidden/>
 
 @code
 {
@@ -50,6 +50,7 @@
         public TimeSpan time;
         public bool gameover;
         public Image Image;
+        public byte[]? ImageBuffer { get; set; }
 
         public Game(int numberOfCols = 0, byte[]? buffer = null)
         {
@@ -61,7 +62,6 @@
             this.gameover = true;
         }
 
-        public byte[]? ImageBuffer { get; set; }
 
 
         public string TimeString()
@@ -72,14 +72,14 @@
         private void LoadImage(byte[] imageBuffer)
         {
             Image64 = $"data:image/png;base64,{Convert.ToBase64String(imageBuffer)}";
-            imgRef.FocusAsync();
         }
 
-        public async Task Setup()
+        public async Task Setup(byte[] mageBuffer)
         {
-            this.LoadImage(this.ImageBuffer);
+            this.LoadImage(mageBuffer);
             ctx = await myCanvas.CreateCanvas2DAsync();
             await ctx.ClearRectAsync(0, 0, myCanvas.Width, myCanvas.Height);
+            this.LoadImage(mageBuffer);
             for (int x = 0; x < this.numberOfCols; x++)
             {
                 for (int y = 0; y < this.numberOfCols; y++)
@@ -303,7 +303,7 @@
         File.Delete(path);
         game = new Game(sizeSelect, bytes);
         game.Image = Image.Load(bytes);
-        await game.Setup();
+        await game.Setup(bytes);
     }
 
     private async Task OnClick(MouseEventArgs arg)
