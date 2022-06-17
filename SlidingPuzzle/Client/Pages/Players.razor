@@ -15,20 +15,49 @@
 <div class="table-responsive">
     <table class="table table-hover table-striped">
         <thead>
-        <tr><th>Email</th><th>Username</th><th colspan="2">PwHash</th></tr>
+        <tr><th>AddGame</th><th>Email</th><th>Username</th><th colspan="2">PwHash</th></tr>
         </thead>
         <tbody>
         <DataRepeaterComponent Items="players">
             <Row Context="player">
                 <tr>
                     <td>
-                        <input type="text" class="form-control" value="@player.Email" @onchange="@((ChangeEventArgs e) => Save(e, player, "Email"))" />
+                        <input type="text" class="form-control" value="@player.Email"/>
                     </td>
                     <td>
-                        <input type="text" class="form-control" value="@player.UserName" @onchange="@((ChangeEventArgs e) => Save(e, player, "UserName"))" />
+                        <input type="text" class="form-control" value="@player.UserName" />
                     </td>
                     <td>
-                        <input type="text" class="form-control" value="@player.PasswordHash" @onchange="@((ChangeEventArgs e) => Save(e, player, "PasswordHash"))" />
+                        <input type="text" class="form-control" value="@player.PasswordHash"/>
+                    </td>
+                    <td>
+                        <button class="btn btn-success" @onclick="@(() => AddGame(player))">AddGame</button>
+                    </td>
+                </tr>
+            </Row>
+        </DataRepeaterComponent>
+        </tbody>
+    </table>
+</div>
+
+@if (playerGames == null)
+{
+    <p><em>Loading...</em></p>
+}
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr><th>Col 1</th><th>Col 2</th></tr>
+        </thead>
+        <tbody>
+        <DataRepeaterComponent Items="playerGames">
+            <Row Context="game">
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" readonly="readonly" value="@(game.Id)"/>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" readonly="readonly" value="@(game.TimePassed)"/>
                     </td>
                 </tr>
             </Row>
@@ -52,10 +81,13 @@ Welcome to your new app.
     private List<Player>? players;
     private Player newPlayer = new Player();
     private string filter;
+    private List<PuzzlePiece>? puzzlePieces;
+    private List<PlayerGame>? playerGames;
     
     protected override async Task OnInitializedAsync()
     {
         players = await Http.GetFromJsonAsync<List<Player>>("/api/Players");
+        playerGames = await Http.GetFromJsonAsync<List<PlayerGame>>("api/Game");
     }
 
     
@@ -71,24 +103,27 @@ Welcome to your new app.
         }
     }
     
-    private async Task AddPlayer()
+    private async Task AddGame(Player player)
     {
-        await Http.PostAsJsonAsync<Player>("/api/Players", newPlayer);
-    }
-    
-    private async Task Save(ChangeEventArgs e, Player player, string propField)
-    {
-        PropertyInfo pinfo = typeof(Player).GetProperty(propField);
-        pinfo.SetValue(player, e.Value);
-
-        using (var msg = await Http.PutAsJsonAsync<Player>($"/api/Players/{player.Id}", player, System.Threading.CancellationToken.None))
+        var playerGame = new PlayerGame()
+        {
+            PuzzlePieces = new List<PuzzlePiece>()
+            {
+                new PuzzlePiece()
+                {
+                    StartX = 0,
+                    StartY = 0,
+                    X = 0,
+                    Y = 0
+                }
+            }
+        };
+        player.PlayerGame = playerGame;
+        using (var msg = await Http.PutAsJsonAsync<PlayerGame>($"/api/Players/{player.Id}", playerGame, System.Threading.CancellationToken.None))
         {
             if (msg.IsSuccessStatusCode)
             {
-            }
-            else
-            {
-                // DO SOMETHING
+                playerGames.Add(await msg.Content.ReadFromJsonAsync<PlayerGame>());
             }
         }
     }
